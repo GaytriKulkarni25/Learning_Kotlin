@@ -1,5 +1,6 @@
+
 fun main() {
-  println("Enter the traffic color")
+   println("Enter the traffic color")
     val name = readln()
 
     val trafficLightColor=name
@@ -68,5 +69,13 @@ fun main() {
 
 
 
+    var device= SmartDevice("Samsung Galaxy", "Mobile")
+
+    device.turnOn()
+    device.turnOff()
+    device.display()
+
+    var tv= SmartDevice("Sony", "TV")
+    tv.display()
 
 }
