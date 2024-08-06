@@ -1,14 +1,19 @@
-class SmartDevice(var name : String, var category : String) {
+open class SmartDevice(var name : String, var category : String) {
 
-         var speakerVolume=2
-         var deviceStatus="online"
+    protected var speakerVolume by RangeRegulator(initialValue = 2, minValue = 0, maxValue = 100)
 
-        fun turnOn() {
-            println("Smart device is turned on")
+    var deviceStatus="online"
+             protected set(value) {
+                 field = value
+             }
+    open val deviceType = "unknown"
+
+       open fun turnOn() {
+           deviceStatus = "on"
         }
 
-        fun turnOff() {
-            println("Smart device is turned off")
+        open fun turnOff() {
+            deviceStatus = "off"
         }
 
         fun display() {
@@ -17,6 +22,13 @@ class SmartDevice(var name : String, var category : String) {
             println("Device volume is $speakerVolume")
             println("Device status is $deviceStatus")
         }
+
+    fun printDeviceInfo(){
+        println("Device name : $name ")
+        println("Device category : $category ")
+        println("Device volume : $speakerVolume")
+        println("Device status : $deviceStatus")
+    }
 
     //secondary constructor
     constructor(name : String, category : String, statusCode : Int) : this(name, category){
