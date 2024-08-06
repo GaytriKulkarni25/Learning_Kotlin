@@ -1,1 +1,1 @@
-learning kotlin fundamntals
+learning kotlin fundamentals
